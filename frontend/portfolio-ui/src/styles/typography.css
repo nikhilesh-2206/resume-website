@@ -1,0 +1,23 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --font-primary: "Inter", sans-serif;
+  --font-code: "JetBrains Mono", monospace;
+}
+
+html {
+  font-family: var(--font-primary);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+code,
+pre {
+  font-family: var(--font-code);
+}
