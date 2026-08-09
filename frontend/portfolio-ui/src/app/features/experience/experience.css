@@ -1,0 +1,724 @@
+.experience-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 7rem 2rem;
+}
+
+/* =========================
+HEADER
+========================= */
+
+.experience-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 6rem;
+}
+
+.section-label {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.experience-header h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0 0 1.25rem;
+}
+
+.experience-intro {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* =========================
+TIMELINE
+========================= */
+
+.experience-timeline {
+  position: relative;
+}
+
+.experience-timeline::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 28px;
+
+  width: 2px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--accent),
+    color-mix(
+      in srgb,
+      var(--accent) 20%,
+      transparent
+    )
+  );
+}
+
+/* =========================
+TIMELINE ITEM
+========================= */
+
+.experience-item {
+  position: relative;
+
+  padding-left: 90px;
+
+  margin-bottom: 3rem;
+}
+
+/* =========================
+STATION BUTTON
+========================= */
+
+.experience-station {
+  width: 100%;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: inherit;
+
+  text-align: left;
+
+  font: inherit;
+
+  cursor: pointer;
+}
+
+/* =========================
+TIMELINE DOT
+========================= */
+
+.station-dot {
+  position: absolute;
+
+  left: 20px;
+  top: 28px;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  border: 4px solid var(--background);
+
+  box-shadow:
+    0 0 0 4px var(--accent),
+    0 0 20px color-mix(
+      in srgb,
+      var(--accent) 35%,
+      transparent
+    );
+
+  z-index: 2;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* =========================
+EXPERIENCE CARD
+========================= */
+
+.experience-card {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 1.5rem 1.75rem;
+
+  border-radius: 1.25rem;
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--text-primary) 12%,
+    transparent
+  );
+
+  background: color-mix(
+    in srgb,
+    var(--text-primary) 3%,
+    transparent
+  );
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.experience-station:hover .experience-card {
+  transform: translateX(6px);
+
+  border-color: var(--accent);
+
+  box-shadow:
+    0 15px 40px
+    color-mix(
+      in srgb,
+      var(--accent) 10%,
+      transparent
+    );
+}
+
+.experience-station:hover .station-dot {
+  transform: scale(1.25);
+
+  box-shadow:
+    0 0 0 5px var(--accent),
+    0 0 25px color-mix(
+      in srgb,
+      var(--accent) 40%,
+      transparent
+    );
+}
+
+/* =========================
+CARD HEADER
+========================= */
+
+.experience-card-header {
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  gap: 1.25rem;
+}
+
+/* =========================
+COMPANY LOGO
+========================= */
+
+.company-logo-wrapper {
+  width: 58px;
+  height: 58px;
+
+  flex: 0 0 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: var(--background);
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--text-primary) 12%,
+    transparent
+  );
+
+  overflow: hidden;
+}
+
+.company-logo {
+  width: 72%;
+  height: 72%;
+
+  object-fit: contain;
+}
+
+.company-logo-fallback {
+  font-size: 1.4rem;
+
+  font-weight: 800;
+
+  color: var(--accent);
+}
+
+/* =========================
+COMPANY INFO
+========================= */
+
+.company-info {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.experience-company {
+  font-size: 1.4rem;
+
+  font-weight: 750;
+
+  line-height: 1.3;
+
+  margin-bottom: 0.3rem;
+
+  color: var(--text-primary);
+}
+
+.experience-designation {
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  color: var(--accent);
+}
+
+/* =========================
+ARROW
+========================= */
+
+.experience-arrow {
+  flex: 0 0 auto;
+
+  margin-left: auto;
+
+  font-size: 1.5rem;
+
+  color: var(--text-secondary);
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.experience-station:hover .experience-arrow {
+  transform: translateX(5px);
+
+  color: var(--accent);
+}
+
+/* =========================
+DURATION
+========================= */
+
+.experience-duration {
+  margin-top: 1.25rem;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid color-mix(
+    in srgb,
+    var(--text-primary) 8%,
+    transparent
+  );
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+
+  line-height: 1.5;
+}
+
+.duration-separator {
+  margin: 0 0.35rem;
+}
+
+/* =========================
+EXPANDED DETAILS
+========================= */
+
+.experience-details {
+  position: relative;
+
+  margin-top: 1.5rem;
+
+  padding: 2.5rem;
+
+  border-radius: 1.5rem;
+
+  background: color-mix(
+    in srgb,
+    var(--accent) 4%,
+    transparent
+  );
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--accent) 25%,
+    transparent
+  );
+
+  animation: expandDetails 0.3s ease;
+}
+
+@keyframes expandDetails {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+CLOSE BUTTON
+========================= */
+
+.close-button {
+  position: absolute;
+
+  top: 1.25rem;
+  right: 1.25rem;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--text-primary) 12%,
+    transparent
+  );
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  font-size: 1.5rem;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.close-button:hover {
+  background: var(--accent);
+
+  border-color: var(--accent);
+
+  color: white;
+}
+
+/* =========================
+DETAILS HEADER
+========================= */
+
+.details-header {
+  padding-right: 3rem;
+
+  margin-bottom: 2rem;
+}
+
+.details-company {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1.25rem;
+}
+
+.details-logo-wrapper {
+  width: 68px;
+  height: 68px;
+
+  flex: 0 0 68px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: var(--background);
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--text-primary) 12%,
+    transparent
+  );
+
+  overflow: hidden;
+}
+
+.details-logo {
+  width: 72%;
+  height: 72%;
+
+  object-fit: contain;
+}
+
+.details-header h3 {
+  margin: 0;
+
+  font-size: 1.8rem;
+
+  font-weight: 800;
+
+  color: var(--text-primary);
+}
+
+.details-header h4 {
+  margin: 0.35rem 0;
+
+  font-size: 1.05rem;
+
+  font-weight: 600;
+
+  color: var(--accent);
+}
+
+.details-header p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+}
+
+/* =========================
+SUMMARY
+========================= */
+
+.details-summary {
+  margin-bottom: 2.5rem;
+}
+
+.details-summary h4,
+.details-projects > h4,
+.details-technologies > h4 {
+  margin: 0 0 1rem;
+
+  font-size: 1.1rem;
+
+  color: var(--accent);
+}
+
+.details-summary p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  line-height: 1.8;
+}
+
+/* =========================
+PROJECTS
+========================= */
+
+.details-projects {
+  margin-bottom: 2.5rem;
+}
+
+.project {
+  display: flex;
+
+  gap: 1rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.project-marker {
+  width: 8px;
+  height: 8px;
+
+  flex: 0 0 8px;
+
+  margin-top: 0.55rem;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+}
+
+.project-content {
+  min-width: 0;
+}
+
+.project h5 {
+  margin: 0 0 0.4rem;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+.project p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  line-height: 1.7;
+}
+
+/* =========================
+TECHNOLOGIES
+========================= */
+
+.details-technologies {
+  margin-top: 2rem;
+}
+
+.technology-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.6rem;
+}
+
+.technology {
+  padding: 0.45rem 0.85rem;
+
+  border-radius: 999px;
+
+  background: color-mix(
+    in srgb,
+    var(--accent) 10%,
+    transparent
+  );
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--accent) 30%,
+    transparent
+  );
+
+  color: var(--accent);
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .experience-section {
+    padding: 5rem 1.25rem;
+  }
+
+  .experience-header {
+    margin-bottom: 4rem;
+  }
+
+  .experience-header h2 {
+    font-size: 2.4rem;
+  }
+
+  .experience-intro {
+    font-size: 1rem;
+  }
+
+  /* Timeline */
+
+  .experience-timeline::before {
+    left: 16px;
+  }
+
+  .experience-item {
+    padding-left: 55px;
+    margin-bottom: 2rem;
+  }
+
+  .station-dot {
+    left: 8px;
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Card */
+
+  .experience-card {
+    padding: 1.25rem;
+  }
+
+  .experience-card-header {
+    gap: 0.9rem;
+  }
+
+  .company-logo-wrapper {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+  }
+
+  .experience-company {
+    font-size: 1.15rem;
+  }
+
+  .experience-designation {
+    font-size: 0.9rem;
+  }
+
+  .experience-arrow {
+    font-size: 1.25rem;
+  }
+
+  .experience-duration {
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+  }
+
+  /* Details */
+
+  .experience-details {
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+  }
+
+  .details-company {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .details-logo-wrapper {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+  }
+
+  .details-header h3 {
+    font-size: 1.4rem;
+  }
+
+  .details-header h4 {
+    font-size: 0.95rem;
+  }
+
+  .close-button {
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+  }
+  .experience-details-container {
+    width: 100%;
+    min-width: 0;
+    position: sticky;
+    top: 100px;
+  }
+}

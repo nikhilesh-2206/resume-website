@@ -1,0 +1,499 @@
+/* =========================
+   ABOUT PAGE
+========================= */
+
+.about-page {
+  min-height: calc(100vh - 72px);
+  padding: 7rem 2rem 6rem;
+}
+
+.about-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   ABOUT HEADER
+========================= */
+
+.about-header {
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.section-label {
+  display: inline-block;
+
+  color: var(--accent);
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  letter-spacing: 0.2rem;
+
+  margin-bottom: 1rem;
+}
+
+.about-header h1 {
+  margin: 0;
+
+  font-size: 3.5rem;
+  font-weight: 800;
+
+  line-height: 1.1;
+
+  color: var(--text-primary);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+
+/* =========================
+   INTRODUCTION
+========================= */
+
+.about-content {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 7rem;
+}
+
+.about-card {
+  position: relative;
+
+  width: 100%;
+  max-width: 900px;
+
+  box-sizing: border-box;
+
+  padding: 2.5rem 3rem;
+
+  border-radius: 1.25rem;
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--text-primary) 12%,
+    transparent
+  );
+
+  background: color-mix(
+    in srgb,
+    var(--text-primary) 3%,
+    transparent
+  );
+
+  box-shadow:
+    0 20px 60px
+    color-mix(
+      in srgb,
+      var(--text-primary) 6%,
+      transparent
+    );
+}
+
+.about-card-line {
+  position: absolute;
+
+  left: 0;
+  top: 2rem;
+  bottom: 2rem;
+
+  width: 3px;
+
+  background: var(--accent);
+
+  border-radius: 999px;
+}
+
+.about-introduction {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 1.1rem;
+  line-height: 1.9;
+}
+
+
+/* =========================
+   EDUCATION SECTION
+========================= */
+
+.education-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.education-header {
+  text-align: center;
+
+  max-width: 700px;
+
+  margin: 0 auto 4rem;
+}
+
+.education-header h2 {
+  margin: 0;
+
+  font-size: 2.8rem;
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  color: var(--text-primary);
+}
+
+
+/* =========================
+   EDUCATION TIMELINE
+========================= */
+
+.education-timeline {
+  position: relative;
+
+  padding: 0.5rem 0;
+}
+
+.education-timeline::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 28px;
+
+  width: 2px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--accent),
+    color-mix(
+      in srgb,
+      var(--accent) 20%,
+      transparent
+    )
+  );
+}
+
+
+/* =========================
+   EDUCATION ITEM
+========================= */
+
+.education-item {
+  position: relative;
+
+  padding-left: 90px;
+
+  margin-bottom: 2.5rem;
+}
+
+.education-item:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   EDUCATION DOT
+========================= */
+
+.education-dot {
+  position: absolute;
+
+  left: 20px;
+  top: 28px;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  border: 4px solid var(--background);
+
+  box-shadow:
+    0 0 0 4px var(--accent),
+    0 0 20px color-mix(
+      in srgb,
+      var(--accent) 35%,
+      transparent
+    );
+
+  z-index: 2;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================
+   EDUCATION CARD
+========================= */
+
+.education-card {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 1.5rem 1.75rem;
+
+  border-radius: 1.25rem;
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--text-primary) 12%,
+    transparent
+  );
+
+  background: color-mix(
+    in srgb,
+    var(--text-primary) 3%,
+    transparent
+  );
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.education-item:hover .education-card {
+  transform: translateX(6px);
+
+  border-color: var(--accent);
+
+  box-shadow:
+    0 15px 40px
+    color-mix(
+      in srgb,
+      var(--accent) 10%,
+      transparent
+    );
+}
+
+.education-item:hover .education-dot {
+  transform: scale(1.25);
+
+  box-shadow:
+    0 0 0 5px var(--accent),
+    0 0 25px color-mix(
+      in srgb,
+      var(--accent) 40%,
+      transparent
+    );
+}
+
+
+/* =========================
+   EDUCATION HEADER
+========================= */
+
+.education-card-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 1.5rem;
+}
+
+.education-card h3 {
+  margin: 0 0 0.4rem;
+
+  color: var(--text-primary);
+
+  font-size: 1.35rem;
+  font-weight: 750;
+
+  line-height: 1.3;
+}
+
+.education-card h4 {
+  margin: 0;
+
+  color: var(--accent);
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  line-height: 1.4;
+}
+
+
+/* =========================
+   YEARS
+========================= */
+
+.education-years {
+  flex: 0 0 auto;
+
+  padding: 0.4rem 0.8rem;
+
+  border-radius: 999px;
+
+  background: color-mix(
+    in srgb,
+    var(--accent) 10%,
+    transparent
+  );
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--accent) 25%,
+    transparent
+  );
+
+  color: var(--accent);
+
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   FIELD OF STUDY
+========================= */
+
+.education-field {
+  margin: 1rem 0 0;
+
+  color: var(--text-primary);
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   LOCATION
+========================= */
+
+.education-location {
+  margin: 0.5rem 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.education-description {
+  margin: 1rem 0 0;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid color-mix(
+    in srgb,
+    var(--text-primary) 8%,
+    transparent
+  );
+
+  color: var(--text-secondary);
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .about-page {
+    padding: 5rem 1.25rem;
+  }
+
+  .about-header {
+    margin-bottom: 3rem;
+  }
+
+  .about-header h1 {
+    font-size: 2.4rem;
+  }
+
+  .about-content {
+    margin-bottom: 5rem;
+  }
+
+  .about-card {
+    padding: 2rem 1.75rem;
+  }
+
+  .about-introduction {
+    font-size: 1rem;
+
+    line-height: 1.8;
+  }
+
+
+  /* Education */
+
+  .education-header {
+    margin-bottom: 3rem;
+  }
+
+  .education-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .education-timeline::before {
+    left: 16px;
+  }
+
+  .education-item {
+    padding-left: 55px;
+
+    margin-bottom: 2rem;
+  }
+
+  .education-dot {
+    left: 8px;
+
+    width: 12px;
+    height: 12px;
+  }
+
+  .education-card {
+    padding: 1.25rem;
+  }
+
+  .education-card-header {
+    flex-direction: column;
+
+    gap: 0.75rem;
+  }
+
+  .education-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .education-card h4 {
+    font-size: 0.9rem;
+  }
+
+  .education-years {
+    font-size: 0.8rem;
+  }
+
+}

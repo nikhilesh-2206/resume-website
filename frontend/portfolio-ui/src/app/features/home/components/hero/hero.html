@@ -1,0 +1,65 @@
+<section class="hero" *ngIf="hero">
+
+  <div class="hero-content">
+
+    <p class="hero-greeting">
+      👋 Hi, I'm
+    </p>
+
+    <h1 class="hero-name">
+      {{ hero.name }}
+    </h1>
+
+    <h2 class="hero-role">
+      {{ hero.role }}
+    </h2>
+
+    <p class="hero-description">
+      {{ hero.description }}
+    </p>
+
+    <div class="hero-actions">
+
+<!--      <button class="primary-btn">-->
+<!--        View Projects-->
+<!--      </button>-->
+
+      <button
+        class="secondary-btn"
+        (click)="toggleSocialLinks()"
+      >
+        {{ showSocialLinks ? 'Hide Connect' : 'Let\'s Connect' }}
+      </button>
+
+    </div>
+
+    <div
+      class="social-links"
+      *ngIf="showSocialLinks && socialLinks.length > 0"
+    >
+      <a
+        *ngFor="let link of socialLinks"
+        [href]="link.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link"
+        [attr.aria-label]="link.type"
+      >
+        <app-icon [name]="link.icon"></app-icon>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="hero-image">
+
+    <img
+      *ngIf="hero?.profileImage"
+      [src]="'http://localhost:8080' + hero.profileImage"
+      [alt]="hero.name"
+      class="profile-image"
+    />
+
+  </div>
+
+</section>
