@@ -1,1 +1,101 @@
-<p>blog works!</p>
+<section class="blog-section">
+
+  <!-- Header -->
+  <div class="blog-header">
+
+    <span class="section-label">
+      BLOG
+    </span>
+
+    <h2>
+      Things I've been learning.
+    </h2>
+
+    <p class="blog-intro">
+      Notes, ideas and lessons from things I'm building,
+      learning and exploring as a software engineer.
+    </p>
+
+  </div>
+
+
+  <!-- Articles -->
+  @if (blogs().length > 0) {
+
+    <div class="blog-grid">
+
+      @for (blog of blogs(); track blog.id) {
+
+        <article class="blog-card">
+
+          <div class="blog-card-top">
+
+            <span class="blog-category">
+              {{ blog.category }}
+            </span>
+
+            @if (blog.readingTime) {
+              <span class="blog-reading-time">
+                {{ blog.readingTime }} min read
+              </span>
+            }
+
+          </div>
+
+
+          <div class="blog-card-content">
+
+            <h3>
+              {{ blog.title }}
+            </h3>
+
+            <p>
+              {{ blog.excerpt }}
+            </p>
+
+          </div>
+
+
+          <div class="blog-card-footer">
+
+            @if (blog.publishedAt) {
+              <span class="blog-date">
+                {{ blog.publishedAt | date:'MMM d, yyyy' }}
+              </span>
+            }
+
+            <a
+              class="read-more"
+              [routerLink]="['/blog', blog.slug]"
+            >
+              Read article
+              <span>→</span>
+            </a>
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+  }
+
+  @if (blogs().length === 0) {
+
+    <div class="blog-empty">
+
+      <h3>
+        No articles yet.
+      </h3>
+
+      <p>
+        I'm currently working on some things worth writing about.
+      </p>
+
+    </div>
+
+  }
+
+</section>

@@ -1,3 +1,4 @@
+```html
 <section class="hero" *ngIf="hero">
 
   <div class="hero-content">
@@ -20,10 +21,6 @@
 
     <div class="hero-actions">
 
-<!--      <button class="primary-btn">-->
-<!--        View Projects-->
-<!--      </button>-->
-
       <button
         class="secondary-btn"
         (click)="toggleSocialLinks()"
@@ -37,6 +34,7 @@
       class="social-links"
       *ngIf="showSocialLinks && socialLinks.length > 0"
     >
+
       <a
         *ngFor="let link of socialLinks"
         [href]="link.url"
@@ -45,11 +43,15 @@
         class="social-link"
         [attr.aria-label]="link.type"
       >
+
         <app-icon [name]="link.icon"></app-icon>
+
       </a>
+
     </div>
 
   </div>
+
 
   <div class="hero-image">
 
@@ -63,3 +65,4 @@
   </div>
 
 </section>
+```

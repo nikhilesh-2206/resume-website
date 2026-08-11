@@ -1,0 +1,331 @@
+
+  /* =========================
+     BLOG DETAIL
+  ========================= */
+
+.blog-detail-section {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 8rem 1.5rem 6rem;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.blog-detail-container {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================
+   BACK LINK
+========================= */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin-bottom: 3rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.back-link:hover {
+  color: var(--accent);
+  transform: translateX(-3px);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.blog-detail-header {
+  margin-bottom: 3.5rem;
+}
+
+.blog-category {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0.45rem 0.85rem;
+
+  border-radius: 999px;
+
+  background: color-mix(
+    in srgb,
+    var(--accent) 10%,
+    transparent
+  );
+
+  color: var(--accent);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.04rem;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.blog-detail-header h1 {
+  margin: 1.5rem 0 1.25rem;
+
+  color: var(--text-primary);
+
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+
+  font-weight: 800;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* =========================
+   EXCERPT
+========================= */
+
+.blog-excerpt {
+  max-width: 720px;
+
+  margin: 0 0 1.5rem;
+
+  color: var(--text-secondary);
+
+  font-size: 1.2rem;
+
+  line-height: 1.75;
+}
+
+
+/* =========================
+   META
+========================= */
+
+.blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.85rem;
+}
+
+
+/* =========================
+   COVER IMAGE
+========================= */
+
+.blog-cover {
+  width: 100%;
+
+  margin-bottom: 3.5rem;
+
+  overflow: hidden;
+
+  border-radius: 1.5rem;
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--text-primary) 10%,
+    transparent
+  );
+
+  background: color-mix(
+    in srgb,
+    var(--text-primary) 4%,
+    transparent
+  );
+
+  box-shadow:
+    0 25px 60px
+    color-mix(
+      in srgb,
+      var(--text-primary) 8%,
+      transparent
+    );
+}
+
+.blog-cover img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================
+   ARTICLE CONTENT
+========================= */
+
+.blog-content {
+  max-width: 760px;
+
+  margin: 0 auto;
+}
+
+
+/* Paragraphs */
+
+.blog-content p {
+  margin: 0 0 1.75rem;
+
+  color: var(--text-secondary);
+
+  font-size: 1.08rem;
+
+  line-height: 1.9;
+
+  letter-spacing: 0.005em;
+}
+
+
+/* First paragraph */
+
+.blog-content p:first-child {
+  color: var(--text-primary);
+
+  font-size: 1.15rem;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.blog-detail-footer {
+  max-width: 760px;
+
+  margin: 4rem auto 0;
+
+  padding-top: 2rem;
+
+  border-top: 1px solid color-mix(
+    in srgb,
+    var(--text-primary) 10%,
+    transparent
+  );
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.blog-detail-loading {
+  min-height: 60vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-secondary);
+
+  font-size: 0.95rem;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .blog-detail-section {
+    padding: 6rem 1.25rem 4rem;
+  }
+
+  .blog-detail-container {
+    max-width: 100%;
+  }
+
+  .back-link {
+    margin-bottom: 2.5rem;
+  }
+
+  .blog-detail-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .blog-detail-header h1 {
+    margin-top: 1.25rem;
+
+    font-size: 2.5rem;
+
+    letter-spacing: -0.03em;
+  }
+
+  .blog-excerpt {
+    font-size: 1rem;
+
+    line-height: 1.7;
+  }
+
+  .blog-cover {
+    margin-bottom: 2.5rem;
+
+    border-radius: 1rem;
+  }
+
+  .blog-content p {
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-content p:first-child {
+    font-size: 1.05rem;
+  }
+
+  .blog-detail-footer {
+    margin-top: 3rem;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .blog-detail-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .blog-detail-header h1 {
+    font-size: 2.1rem;
+  }
+
+  .blog-meta {
+    font-size: 0.8rem;
+  }
+}
+

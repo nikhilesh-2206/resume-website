@@ -1,0 +1,101 @@
+<section class="blog-detail-section">
+
+  @if (blog(); as article) {
+
+    <div class="blog-detail-container">
+
+      <!-- Back -->
+      <a
+        routerLink="/blog"
+        class="back-link"
+      >
+        ← Back to articles
+      </a>
+
+
+      <!-- Header -->
+      <header class="blog-detail-header">
+
+        <span class="blog-category">
+          {{ article.category }}
+        </span>
+
+        <h1>
+          {{ article.title }}
+        </h1>
+
+        <p class="blog-excerpt">
+          {{ article.excerpt }}
+        </p>
+
+        <div class="blog-meta">
+
+          @if (article.publishedAt) {
+            <span>
+              {{ article.publishedAt | date:'MMM d, yyyy' }}
+            </span>
+          }
+
+          @if (article.readingTime) {
+            <span>
+              · {{ article.readingTime }} min read
+            </span>
+          }
+
+        </div>
+
+      </header>
+
+
+      <!-- Cover image -->
+      @if (article.coverImage) {
+
+        <div class="blog-cover">
+          <img
+            [src]="article.coverImage"
+            [alt]="article.title"
+          />
+        </div>
+
+      }
+
+
+      <!-- Article -->
+      <article class="blog-content">
+
+        @for (paragraph of article.content.split('\n\n'); track $index) {
+
+          <p>
+            {{ paragraph }}
+          </p>
+
+        }
+
+      </article>
+
+
+      <!-- Footer -->
+      <div class="blog-detail-footer">
+
+        <a
+          routerLink="/blog"
+          class="back-link"
+        >
+          ← Back to articles
+        </a>
+
+      </div>
+
+    </div>
+
+  }
+
+  @if (!blog()) {
+
+    <div class="blog-detail-loading">
+      Loading article...
+    </div>
+
+  }
+
+</section>

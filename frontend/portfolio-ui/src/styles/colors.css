@@ -1,0 +1,23 @@
+:root {
+  /* Light theme */
+  --background: #ffffff;
+  --text-primary: #111111;
+  --text-secondary: #666666;
+
+  --accent: #2563eb;
+
+  --surface: #f8fafc;
+  --border: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  /* Dark theme */
+  --background: #0b0f19;
+  --text-primary: #f5f7fa;
+  --text-secondary: #9ca3af;
+
+  --accent: #60a5fa;
+
+  --surface: #111827;
+  --border: rgba(255, 255, 255, 0.12);
+}

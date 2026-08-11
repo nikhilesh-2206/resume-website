@@ -1,0 +1,123 @@
+<section class="projects-section">
+
+  <div class="projects-container">
+
+    <!-- HEADER -->
+
+    <div class="projects-header">
+
+      <span class="section-label">
+        PROJECTS
+      </span>
+
+      <h1>
+        Things I've built.
+      </h1>
+
+      <p class="projects-intro">
+        A selection of projects I've worked on,
+        from full-stack applications to machine
+        learning and backend systems.
+      </p>
+
+    </div>
+
+
+    <!-- PROJECT GRID -->
+
+    <div class="projects-grid">
+
+      <article
+        class="project-card"
+        *ngFor="let project of projects"
+        [class.featured]="project.featured"
+      >
+
+        <!-- FEATURED LABEL -->
+
+        <div
+          class="featured-label"
+          *ngIf="project.featured"
+        >
+          FEATURED
+        </div>
+
+
+        <!-- PROJECT IMAGE -->
+
+        <div
+          class="project-image"
+          *ngIf="project.imageUrl"
+        >
+
+          <img
+            [src]="project.imageUrl"
+            [alt]="project.name"
+          />
+
+        </div>
+
+
+        <!-- PROJECT CONTENT -->
+
+        <div class="project-content">
+
+          <h2>
+            {{ project.name }}
+          </h2>
+
+          <p class="project-short-description">
+            {{ project.shortDescription }}
+          </p>
+
+          <p
+            class="project-description"
+            *ngIf="project.description"
+          >
+            {{ project.description }}
+          </p>
+
+
+          <!-- TECHNOLOGIES -->
+
+          <div class="technology-list">
+
+            <span
+              class="technology"
+              *ngFor="
+                let technology
+                of getTechnologies(project.technologies)
+              "
+            >
+              {{ technology }}
+            </span>
+
+          </div>
+
+
+          <!-- ACTIONS -->
+
+          <div class="project-actions">
+
+            <a
+              *ngIf="project.githubUrl"
+              [href]="project.githubUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github-button"
+            >
+              <span>GitHub</span>
+              <span class="arrow">↗</span>
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>

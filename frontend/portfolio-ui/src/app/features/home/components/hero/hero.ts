@@ -53,4 +53,6 @@ export class Hero implements OnInit {
   toggleSocialLinks(): void {
     this.showSocialLinks = !this.showSocialLinks;
   }
+
+  protected readonly console = console;
 }

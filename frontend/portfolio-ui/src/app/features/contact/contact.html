@@ -1,0 +1,241 @@
+<section class="contact-section">
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <div class="contact-header">
+
+    <span class="section-label">
+      GET IN TOUCH
+    </span>
+
+    <h2>
+      Have a project, opportunity, or
+      <br />
+      just want to say hello?
+    </h2>
+
+    <p class="contact-intro">
+      I'd love to hear from you. Feel free to reach out
+      and I'll get back to you as soon as possible.
+    </p>
+
+  </div>
+
+
+  <!-- =========================
+       CONTACT FORM
+  ========================= -->
+
+  <div class="contact-card">
+
+    <form
+      #contactForm="ngForm"
+      (ngSubmit)="onSubmit()"
+    >
+
+      <!-- NAME -->
+
+      <div class="form-group">
+
+        <label for="name">
+          Name
+        </label>
+
+        <input
+          id="name"
+          type="text"
+          name="name"
+          [(ngModel)]="form.name"
+          placeholder="Your name"
+          required
+        />
+
+      </div>
+
+
+      <!-- EMAIL -->
+
+      <div class="form-group">
+
+        <label for="email">
+          Email
+        </label>
+
+        <input
+          id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="form.email"
+          placeholder="your@email.com"
+          required
+          email
+        />
+
+      </div>
+
+
+      <!-- SUBJECT -->
+
+      <div class="form-group">
+
+        <label for="subject">
+          Subject
+        </label>
+
+        <input
+          id="subject"
+          type="text"
+          name="subject"
+          [(ngModel)]="form.subject"
+          placeholder="What's this about?"
+          required
+        />
+
+      </div>
+
+
+      <!-- MESSAGE -->
+
+      <div class="form-group">
+
+        <label for="message">
+          Message
+        </label>
+
+        <textarea
+          id="message"
+          name="message"
+          [(ngModel)]="form.message"
+          placeholder="Tell me a little about it..."
+          rows="7"
+          required
+        ></textarea>
+
+      </div>
+
+
+      <!-- SUBMIT -->
+
+      <div class="form-actions">
+
+        <button
+          type="submit"
+          class="send-btn"
+          [disabled]="contactForm.invalid || isSubmitting"
+        >
+
+          @if (!isSubmitting) {
+            <span>
+              Send Message →
+            </span>
+          }
+
+          @if (isSubmitting) {
+            <span>
+              Sending...
+            </span>
+          }
+
+        </button>
+
+      </div>
+
+
+      <!-- SUCCESS -->
+
+      @if (isSubmitted) {
+
+        <div class="form-message success-message">
+
+          <span>✓</span>
+
+          <span>
+            Your message has been sent successfully.
+          </span>
+
+        </div>
+
+      }
+
+
+      <!-- ERROR -->
+
+      @if (errorMessage) {
+
+        <div class="form-message error-message">
+
+          <span>
+            {{ errorMessage }}
+          </span>
+
+        </div>
+
+      }
+
+    </form>
+
+  </div>
+
+
+  <!-- =========================
+       DIRECT CONTACT
+  ========================= -->
+
+  <div class="direct-contact">
+
+    <div class="direct-contact-header">
+
+      <h3>
+        Or reach me directly
+      </h3>
+
+    </div>
+
+
+    @if (socialLinks.length > 0) {
+
+      <div class="contact-links">
+
+        @for (link of socialLinks; track link.id) {
+
+          <a
+            [href]="getContactHref(link)"
+            class="contact-link"
+            [target]="isExternalLink(link) ? '_blank' : null"
+            [rel]="isExternalLink(link) ? 'noopener noreferrer' : null"
+          >
+
+            <div class="contact-icon">
+
+              <app-icon
+                [name]="link.icon"
+              ></app-icon>
+
+            </div>
+
+
+            <div class="contact-link-content">
+
+              <span class="contact-link-label">
+                {{ getContactLabel(link) }}
+              </span>
+
+              <span class="contact-link-value">
+                {{ getContactValue(link) }}
+              </span>
+
+            </div>
+
+          </a>
+
+        }
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

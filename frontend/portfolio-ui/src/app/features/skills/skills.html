@@ -1,0 +1,60 @@
+<section class="skills-page">
+
+  <div class="skills-container">
+
+    <!-- HEADER -->
+
+    <div class="skills-header">
+
+      <span class="section-label">
+        SKILLS
+      </span>
+
+      <h1>
+        What I work with.
+      </h1>
+
+      <p>
+        Technologies and tools I use to build
+        software and solve problems.
+      </p>
+
+    </div>
+
+
+    <!-- SKILL CATEGORIES -->
+
+    <div class="skills-grid">
+
+      <div
+        class="skill-category"
+        *ngFor="let category of skillCategories"
+      >
+
+        <div class="category-header">
+
+          <h2>
+            {{ category.name }}
+          </h2>
+
+        </div>
+
+
+        <div class="skill-list">
+
+          <span
+            class="skill-pill"
+            *ngFor="let skill of category.skills"
+          >
+            {{ skill.name }}
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

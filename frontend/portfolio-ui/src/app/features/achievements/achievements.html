@@ -1,0 +1,92 @@
+<section class="achievements-section">
+
+  <div class="achievements-header">
+
+    <span class="section-label">
+      ACHIEVEMENTS
+    </span>
+
+    <h2>
+      Things I'm proud of.
+    </h2>
+
+    <p class="achievements-intro">
+      A collection of academic, professional and technical
+      milestones throughout my journey.
+    </p>
+
+  </div>
+
+
+  <div
+    class="achievements-grid"
+    *ngIf="achievements.length > 0"
+  >
+
+    <div
+      class="achievement-card"
+      *ngFor="let achievement of achievements"
+      [class.featured]="achievement.featured"
+    >
+
+      <!-- Icon / Number -->
+
+      <div class="achievement-marker">
+
+        <span>
+          {{ achievement.displayOrder }}
+        </span>
+
+      </div>
+
+
+      <!-- Content -->
+
+      <div class="achievement-content">
+
+        <div class="achievement-top">
+
+          <div>
+
+            <h3>
+              {{ achievement.title }}
+            </h3>
+
+            <p
+              class="achievement-organization"
+              *ngIf="achievement.organization"
+            >
+              {{ achievement.organization }}
+            </p>
+
+          </div>
+
+          <span
+            class="achievement-date"
+            *ngIf="achievement.achievementDate"
+          >
+            {{ achievement.achievementDate }}
+          </span>
+
+        </div>
+
+
+        <p class="achievement-description">
+          {{ achievement.description }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="empty-state"
+    *ngIf="achievements.length === 0"
+  >
+    No achievements available.
+  </div>
+
+</section>
