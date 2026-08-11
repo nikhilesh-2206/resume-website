@@ -1,4 +1,3 @@
 export const environment = {
-  production: false,
-  apiBaseUrl: 'http://localhost:8080'
+  apiBaseUrl: 'https://resume-website-31n0.onrender.com'
 };

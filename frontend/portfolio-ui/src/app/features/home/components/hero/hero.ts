@@ -6,11 +6,12 @@ import { HeroResponseService } from '../../../../core/services/hero-response.ser
 import { SocialLink } from '../../../../core/models/social-link.model';
 import { SocialLinkService } from '../../../../core/services/social-link.service';
 import { AppIcon } from '../../../../shared/components/app-icon/app-icon';
+import { API_BASE_URL } from '../../../../core/config/api.config';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule,AppIcon],
+  imports: [CommonModule, AppIcon],
   templateUrl: './hero.html',
   styleUrl: './hero.css'
 })
@@ -19,6 +20,8 @@ export class Hero implements OnInit {
   private heroResponseService = inject(HeroResponseService);
   private socialLinkService = inject(SocialLinkService);
   private cdr = inject(ChangeDetectorRef);
+
+  readonly apiBaseUrl = inject(API_BASE_URL);
 
   hero?: HeroResponse;
   socialLinks: SocialLink[] = [];
@@ -48,6 +51,7 @@ export class Hero implements OnInit {
         console.error('Failed to load social links:', err);
       }
     });
+
   }
 
   toggleSocialLinks(): void {

@@ -57,7 +57,7 @@
 
     <img
       *ngIf="hero?.profileImage"
-      [src]="'http://localhost:8080' + hero.profileImage"
+      [src]="apiBaseUrl + hero.profileImage"
       [alt]="hero.name"
       class="profile-image"
     />
