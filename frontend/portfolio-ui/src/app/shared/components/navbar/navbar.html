@@ -1,43 +1,91 @@
 <nav class="navbar">
+
   <div class="navbar-container">
 
-    <!-- Brand -->
+    <!-- =========================
+         BRAND
+    ========================= -->
+
     <div class="brand">
-      <a href="#" class="brand-name">
+
+      <a
+        routerLink="/"
+        class="brand-name"
+        (click)="closeMenu()"
+      >
         Nikhilesh Kumar<span class="accent">.</span>
       </a>
+
     </div>
 
-    <!-- Navigation -->
+
+    <!-- =========================
+         DESKTOP NAVIGATION
+    ========================= -->
+
     <ul class="nav-links">
-      <li><a routerLink="/about">About</a></li>
-      <li><a routerLink="/experience">Experience</a></li>
-      <li><a routerLink="/projects">Projects</a></li>
-      <li><a routerLink="/skills">Skills</a></li>
-      <li><a routerLink="/achievements">Achievements</a></li>
-      <li><a routerLink="/blog">Blog</a></li>
-      <li><a routerLink="/contact">Contact</a></li>
+
+      <li>
+        <a routerLink="/about">About</a>
+      </li>
+
+      <li>
+        <a routerLink="/experience">Experience</a>
+      </li>
+
+      <li>
+        <a routerLink="/projects">Projects</a>
+      </li>
+
+      <li>
+        <a routerLink="/skills">Skills</a>
+      </li>
+
+      <li>
+        <a routerLink="/achievements">Achievements</a>
+      </li>
+
+      <li>
+        <a routerLink="/blog">Blog</a>
+      </li>
+
+      <li>
+        <a routerLink="/contact">Contact</a>
+      </li>
+
     </ul>
 
-    <!-- Right Side -->
+
+    <!-- =========================
+         DESKTOP ACTIONS
+    ========================= -->
+
     <div class="nav-actions">
 
-      <!-- Theme Toggle -->
+      <!-- Theme -->
+
       <button
         class="theme-toggle"
         (click)="toggleTheme()"
-        [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
+        [attr.aria-label]="
+          isDarkMode
+            ? 'Switch to light mode'
+            : 'Switch to dark mode'
+        "
       >
         {{ isDarkMode ? '☀️' : '🌙' }}
       </button>
 
+
       <!-- Resume -->
+
       <a
-        [href]="apiBaseUrl + '/uploads/resume.pdf'"
+        href="/uploads/resume.pdf"
+        class="resume-btn"
         target="_blank"
         rel="noopener noreferrer"
-        class="resume-btn"
       >
+
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
@@ -55,9 +103,170 @@
         </svg>
 
         <span>Resume</span>
+
       </a>
 
     </div>
 
+
+    <!-- =========================
+         MOBILE MENU BUTTON
+    ========================= -->
+
+    <button
+      class="mobile-menu-toggle"
+      type="button"
+      (click)="toggleMenu()"
+      [attr.aria-label]="
+        isMenuOpen
+          ? 'Close navigation menu'
+          : 'Open navigation menu'
+      "
+      [attr.aria-expanded]="isMenuOpen"
+    >
+
+      @if (!isMenuOpen) {
+        <span class="menu-icon">☰</span>
+      }
+
+      @if (isMenuOpen) {
+        <span class="menu-icon">✕</span>
+      }
+
+    </button>
+
   </div>
+
+
+  <!-- =========================
+       MOBILE MENU
+  ========================= -->
+
+  @if (isMenuOpen) {
+
+    <div class="mobile-menu">
+
+      <ul class="mobile-nav-links">
+
+        <li>
+          <a
+            routerLink="/about"
+            (click)="closeMenu()"
+          >
+            About
+          </a>
+        </li>
+
+        <li>
+          <a
+            routerLink="/experience"
+            (click)="closeMenu()"
+          >
+            Experience
+          </a>
+        </li>
+
+        <li>
+          <a
+            routerLink="/projects"
+            (click)="closeMenu()"
+          >
+            Projects
+          </a>
+        </li>
+
+        <li>
+          <a
+            routerLink="/skills"
+            (click)="closeMenu()"
+          >
+            Skills
+          </a>
+        </li>
+
+        <li>
+          <a
+            routerLink="/achievements"
+            (click)="closeMenu()"
+          >
+            Achievements
+          </a>
+        </li>
+
+        <li>
+          <a
+            routerLink="/blog"
+            (click)="closeMenu()"
+          >
+            Blog
+          </a>
+        </li>
+
+        <li>
+          <a
+            routerLink="/contact"
+            (click)="closeMenu()"
+          >
+            Contact
+          </a>
+        </li>
+
+      </ul>
+
+
+      <!-- Mobile Actions -->
+
+      <div class="mobile-menu-actions">
+
+        <button
+          class="mobile-theme-toggle"
+          type="button"
+          (click)="toggleTheme()"
+        >
+
+          <span>
+            {{ isDarkMode ? '☀️' : '🌙' }}
+          </span>
+
+          <span>
+            {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
+          </span>
+
+        </button>
+
+
+        <a
+          href="/uploads/resume.pdf"
+          class="mobile-resume-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+          (click)="closeMenu()"
+        >
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+
+          <span>Resume</span>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  }
+
 </nav>

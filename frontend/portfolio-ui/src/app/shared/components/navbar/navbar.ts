@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { ThemeService } from '../../../core/services/themes.service';
-import { API_BASE_URL } from '../../../core/config/api.config';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +14,7 @@ export class Navbar {
 
   private themeService = inject(ThemeService);
 
-  readonly apiBaseUrl = inject(API_BASE_URL);
+  isMenuOpen = false;
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
@@ -23,5 +22,13 @@ export class Navbar {
 
   get isDarkMode(): boolean {
     return this.themeService.isDarkMode();
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen = false;
   }
 }
