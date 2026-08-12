@@ -1,4 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  inject,
+  OnInit
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -24,17 +29,9 @@ export class Contact implements OnInit {
 
   private contactService = inject(ContactService);
   private socialLinkService = inject(SocialLinkService);
-
-  /* =========================
-     SOCIAL LINKS
-  ========================= */
+  private cdr = inject(ChangeDetectorRef);
 
   socialLinks: SocialLink[] = [];
-
-
-  /* =========================
-     CONTACT FORM
-  ========================= */
 
   form: ContactRequest = {
     name: '',
@@ -46,11 +43,6 @@ export class Contact implements OnInit {
   isSubmitting = false;
   isSubmitted = false;
   errorMessage = '';
-
-
-  /* =========================
-     INITIALIZATION
-  ========================= */
 
   ngOnInit(): void {
 
@@ -67,6 +59,7 @@ export class Contact implements OnInit {
           (a, b) => a.displayOrder - b.displayOrder
         );
 
+        this.cdr.detectChanges();
       },
 
       error: (error) => {
@@ -79,13 +72,7 @@ export class Contact implements OnInit {
       }
 
     });
-
   }
-
-
-  /* =========================
-     CONTACT LABEL
-  ========================= */
 
   getContactLabel(link: SocialLink): string {
 
@@ -103,17 +90,13 @@ export class Contact implements OnInit {
       case 'github':
         return 'GitHub';
 
+      case 'geeksforgeeks':
+        return 'GeeksforGeeks';
+
       default:
         return link.type;
-
     }
-
   }
-
-
-  /* =========================
-     CONTACT VALUE
-  ========================= */
 
   getContactValue(link: SocialLink): string {
 
@@ -122,39 +105,24 @@ export class Contact implements OnInit {
     switch (type) {
 
       case 'email':
-
-        return link.url.replace(
-          /^mailto:/,
-          ''
-        );
+        return link.url.replace(/^mailto:/, '');
 
       case 'phone':
-
-        return link.url.replace(
-          /^tel:/,
-          ''
-        );
+        return link.url.replace(/^tel:/, '');
 
       case 'linkedin':
-
         return 'Connect with me';
 
       case 'github':
-
         return 'View my projects';
 
+      case 'geeksforgeeks':
+        return 'View my profile';
+
       default:
-
         return link.url;
-
     }
-
   }
-
-
-  /* =========================
-     CONTACT HREF
-  ========================= */
 
   getContactHref(link: SocialLink): string {
 
@@ -164,28 +132,18 @@ export class Contact implements OnInit {
       type === 'email' &&
       !link.url.startsWith('mailto:')
     ) {
-
       return `mailto:${link.url}`;
-
     }
 
     if (
       type === 'phone' &&
       !link.url.startsWith('tel:')
     ) {
-
       return `tel:${link.url}`;
-
     }
 
     return link.url;
-
   }
-
-
-  /* =========================
-     EXTERNAL LINK
-  ========================= */
 
   isExternalLink(link: SocialLink): boolean {
 
@@ -195,13 +153,7 @@ export class Contact implements OnInit {
       type !== 'email' &&
       type !== 'phone'
     );
-
   }
-
-
-  /* =========================
-     SUBMIT FORM
-  ========================= */
 
   onSubmit(): void {
 
@@ -233,6 +185,7 @@ export class Contact implements OnInit {
             message: ''
           };
 
+          this.cdr.detectChanges();
         },
 
         error: (error) => {
@@ -247,11 +200,9 @@ export class Contact implements OnInit {
           this.errorMessage =
             'Something went wrong while sending your message. Please try again.';
 
+          this.cdr.detectChanges();
         }
 
       });
-
   }
-
 }
-``
