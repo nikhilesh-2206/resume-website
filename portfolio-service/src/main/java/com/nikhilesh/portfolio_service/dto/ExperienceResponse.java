@@ -4,6 +4,7 @@ package com.nikhilesh.portfolio_service.dto;
 import tools.jackson.databind.JsonNode;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class ExperienceResponse {
 
@@ -15,8 +16,8 @@ public class ExperienceResponse {
     private LocalDate fromDate;
     private LocalDate toDate;
     private String summary;
-    private JsonNode projectsWorkDone;
-    private JsonNode majorTechnologies;
+    List<ProjectWork> projectsWorkDone;
+    List<String> majorTechnologies;
     private Integer displayOrder;
 
     public ExperienceResponse() {
@@ -31,8 +32,8 @@ public class ExperienceResponse {
             LocalDate fromDate,
             LocalDate toDate,
             String summary,
-            JsonNode projectsWorkDone,
-            JsonNode majorTechnologies,
+            List<ProjectWork> projectsWorkDone,
+            List<String> majorTechnologies,
             Integer displayOrder
     ) {
         this.id = id;
@@ -80,11 +81,11 @@ public class ExperienceResponse {
         return summary;
     }
 
-    public JsonNode getProjectsWorkDone() {
+    public List<ProjectWork> getProjectsWorkDone() {
         return projectsWorkDone;
     }
 
-    public JsonNode getMajorTechnologies() {
+    public List<String> getMajorTechnologies() {
         return majorTechnologies;
     }
 
@@ -124,11 +125,11 @@ public class ExperienceResponse {
         this.summary = summary;
     }
 
-    public void setProjectsWorkDone(JsonNode projectsWorkDone) {
+    public void setProjectsWorkDone(List<ProjectWork> projectsWorkDone) {
         this.projectsWorkDone = projectsWorkDone;
     }
 
-    public void setMajorTechnologies(JsonNode majorTechnologies) {
+    public void setMajorTechnologies(List majorTechnologies) {
         this.majorTechnologies = majorTechnologies;
     }
 

@@ -1,5 +1,6 @@
 package com.nikhilesh.portfolio_service.entity;
 
+import com.nikhilesh.portfolio_service.dto.ProjectWork;
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
@@ -7,6 +8,7 @@ import tools.jackson.databind.JsonNode;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "experience")
@@ -38,11 +40,11 @@ public class Experience {
 
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "projects_work_done", columnDefinition = "jsonb")
-    private JsonNode projectsWorkDone;
+    private List<ProjectWork> projectsWorkDone;
 
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "major_technologies", columnDefinition = "jsonb")
-    private JsonNode majorTechnologies;
+    private List<String> majorTechnologies;
 
     @Column(name = "display_order", nullable = false)
     private Integer displayOrder;
@@ -88,14 +90,6 @@ public class Experience {
         return summary;
     }
 
-    public JsonNode getProjectsWorkDone() {
-        return projectsWorkDone;
-    }
-
-    public JsonNode getMajorTechnologies() {
-        return majorTechnologies;
-    }
-
     public Integer getDisplayOrder() {
         return displayOrder;
     }
@@ -110,6 +104,21 @@ public class Experience {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    public List<ProjectWork> getProjectsWorkDone() {
+        return projectsWorkDone;
+    }
+
+    public void setProjectsWorkDone(List<ProjectWork> projectsWorkDone) {
+        this.projectsWorkDone = projectsWorkDone;
+    }
+
+    public List<String> getMajorTechnologies() {
+        return majorTechnologies;
+    }
+
+    public void setMajorTechnologies(List<String> majorTechnologies) {
+        this.majorTechnologies = majorTechnologies;
     }
 
     public void setCompanyName(String companyName) {
@@ -138,14 +147,6 @@ public class Experience {
 
     public void setSummary(String summary) {
         this.summary = summary;
-    }
-
-    public void setProjectsWorkDone(JsonNode projectsWorkDone) {
-        this.projectsWorkDone = projectsWorkDone;
-    }
-
-    public void setMajorTechnologies(JsonNode majorTechnologies) {
-        this.majorTechnologies = majorTechnologies;
     }
 
     public void setDisplayOrder(Integer displayOrder) {
